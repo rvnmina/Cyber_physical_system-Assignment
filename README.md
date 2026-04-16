@@ -126,8 +126,77 @@ Where
 
 ---
 
+# Newton-Based Reinforcement Learning
+
+This project presents a **Newton-inspired modification of Q-learning**, where the traditional update rule is enhanced using a second-order approximation to achieve **faster and more stable convergence**.
 
 ---
+
+## Overview
+
+Reinforcement Learning (RL) algorithms like Q-learning typically rely on a **fixed learning rate**, which can lead to slow convergence or instability.
+
+In this project, we introduce a **Newton-based update mechanism** that dynamically adapts the learning step using an approximation of the second-order derivative (Hessian).
+
+---
+
+## Key Idea
+
+Instead of a constant learning rate, we scale updates using:
+
+- Temporal Difference (TD) Error  
+- Hessian approximation (second-order information)
+
+This results in:
+
+- Adaptive learning  
+- Faster convergence  
+- Improved stability  
+
+---
+
+## Algorithm
+
+### 1. TD Error: δ = r + γ max Q(s', a') - Q(s, a)
+
+### 2. Hessian Approximation: H ≈ |δ| + ε
+
+### 3. Update Rule: Q(s, a) ← Q(s, a) + α * (δ / H)
+
+---
+
+---
+
+## Implementation Details
+
+- **Environment:** FrozenLake-v1 (Gymnasium)
+- **Algorithm:** Newton-based Q-learning
+- **Exploration:** Epsilon-greedy with decay
+- **Episodes:** 10,000
+- **Language:** Python
+
+---
+
+## Results
+
+- **Success Rate:** 1.0  
+- Rapid convergence after initial exploration  
+- Stable performance across episodes  
+
+The learning curve shows:
+- Early exploration phase  
+- Rapid improvement  
+- Stable high reward region  
+
+---
+
+## 📁 Project Structure
+Newton_RL/
+│
+├── newton_q_learning.ipynb
+├── Newton_RL_Report.pdf
+├── result.png In pdf
+└── README.md
 
 ## Author
 **Ravindra Mina**  
